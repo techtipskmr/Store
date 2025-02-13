@@ -27,8 +27,8 @@ public class Address {
     private String address;
     private String landmark;
     
-    @OneToOne(mappedBy = "address" ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "locality_id", referencedColumnName = "addressid")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "localityid")
     private Locality locality;
     private String phone;
     private String phone2;

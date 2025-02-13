@@ -25,15 +25,15 @@ public class Stock {
 	@GeneratedValue(strategy = GenerationType.UUID)
     private UUID stockID;
 	 @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "priduct_id", referencedColumnName = "stockid")
+	 @JoinColumn(name = "product_id", referencedColumnName = "productid")
     private Product product;
 	 
 	 @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "store_id", referencedColumnName = "stockid")
+	 @JoinColumn(name = "store_id", referencedColumnName = "storeid")
     private Store store;
     private int quantity;
     @OneToOne(mappedBy = "stock")
-    private CartItem cartItem;
+    private CartItem cartitemid;
     private float MRP;
     private float finalPrice;
     private float discount;

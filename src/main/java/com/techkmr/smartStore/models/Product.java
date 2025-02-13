@@ -22,7 +22,7 @@ import lombok.Setter;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-    private UUID priductID;
+    private UUID productID;
     private String productName;
     private String category;
     private String details;

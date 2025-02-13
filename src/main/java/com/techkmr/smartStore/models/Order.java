@@ -25,15 +25,14 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
     private UUID orderID;
+	@OneToOne
+    private SUser suser;
 	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "suser_id", referencedColumnName = "orderid")
-    private SUser user;
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cart_id", referencedColumnName = "orderid")
+    @JoinColumn(name = "cart_id", referencedColumnName = "cartid")
     private Cart cart;
     private boolean isPaymentConfirmed;
     private enum paymentType{ONLINE,COD,CASH};
-    private Address adress;
+    private Address address;
     private String altMobile;
     private Date orderDate;
     private enum orderType{PICKUP,DELIVERY,COURIER}

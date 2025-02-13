@@ -34,9 +34,8 @@ public class SUser {
     private enum gender{MALE,FEMALE,NA};
     private enum role{USER,ADMIN,SELLER};
     
-    @OneToOne(mappedBy = "suser" ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "userid")
-    private Address Address;
+    @OneToOne
+    private Address address;
 
     @OneToOne(mappedBy = "suser" ,cascade = CascadeType.ALL)
     private Store store;
@@ -44,6 +43,7 @@ public class SUser {
 
     @OneToOne(mappedBy = "suser")
     private Order order;
+    
     private boolean isEnabled;
     private boolean isAccountNonLocked;
     private boolean isCredentialsNonExpired;

@@ -26,14 +26,12 @@ public class Store {
     private UUID storeID;
     private String storeName;
     //refers to user id with roles as seller
-    @OneToOne(mappedBy = "store" ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "suser_id", referencedColumnName = "storeid")
-    private SUser ownerID;
+    @OneToOne    
+    private SUser suser;//changed to suser from ownerId
     private String phone;
     
-    @OneToOne(mappedBy = "store" ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "storeid")
-    private Address adress;
+    @OneToOne()
+    private Address address;
     private String lat;
     private String lont;
     private String mapURL;
