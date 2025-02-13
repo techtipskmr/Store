@@ -27,16 +27,12 @@ public class Address {
     private String address;
     private String landmark;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "localityid")
+  
+    @OneToOne
+    @JoinColumn(name = "loclityid")
     private Locality locality;
     private String phone;
     private String phone2;
     private String remarks;
     
-    @OneToOne(mappedBy = "address" ,cascade = CascadeType.ALL)
-    private SUser user;
-    
-    @OneToOne(mappedBy = "address" ,cascade = CascadeType.ALL)
-    private Store store;
 }

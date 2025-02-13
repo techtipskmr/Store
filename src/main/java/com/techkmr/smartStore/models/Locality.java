@@ -28,6 +28,5 @@ public class Locality {
     private String district;
     private String state;
     private String pincode;
-    @OneToOne(mappedBy = "locality" ,cascade = CascadeType.ALL)
-    private Address address;
+    
 }

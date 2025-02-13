@@ -21,17 +21,23 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Order {
+public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
     private UUID orderID;
 	@OneToOne
+    @JoinColumn(name = "userid")
     private SUser suser;
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cart_id", referencedColumnName = "cartid")
+	
+	@OneToOne
+    @JoinColumn(name = "cartid")
     private Cart cart;
     private boolean isPaymentConfirmed;
     private enum paymentType{ONLINE,COD,CASH};
+    private String paymentType;
+
+    @OneToOne
+    @JoinColumn(name = "addressid")
     private Address address;
     private String altMobile;
     private Date orderDate;

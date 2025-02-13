@@ -25,14 +25,12 @@ public class CartItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
     private UUID cartItemID;
-	@OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "stock_id", referencedColumnName = "stockid")
+	@OneToOne
+    @JoinColumn(name = "stockid")
     private Stock stock;
 	
 	
-	@ManyToOne
-	 @JoinColumn(name="cart_id")
-	    private Cart cart;
+	
     private float unitPrice;
     private short noOfUnits;
 }

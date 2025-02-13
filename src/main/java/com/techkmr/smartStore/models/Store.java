@@ -26,11 +26,13 @@ public class Store {
     private UUID storeID;
     private String storeName;
     //refers to user id with roles as seller
-    @OneToOne    
+    @OneToOne
+    @JoinColumn(name = "userid")
     private SUser suser;//changed to suser from ownerId
     private String phone;
     
-    @OneToOne()
+    @OneToOne
+    @JoinColumn(name = "addressid")
     private Address address;
     private String lat;
     private String lont;

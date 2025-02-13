@@ -31,7 +31,6 @@ public class Product {
     private boolean inStock;
     private long orderCount;
     
-    @OneToOne(mappedBy = "product")
-    private Stock stock;
+   
 
 }

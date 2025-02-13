@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -24,11 +25,11 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
     private UUID cartID;
-	@OneToMany(mappedBy="cart")
+	@OneToMany
+//    @JoinColumn(name = "cartitemid")
     private List<CartItem> cartItems;
     private float cartAmount;
-    @OneToOne(mappedBy = "cart")
-    private Order order;
+   
     //to do discount or copuns to be deducted or implemented
 
 

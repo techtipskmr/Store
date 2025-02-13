@@ -24,16 +24,17 @@ public class Stock {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
     private UUID stockID;
-	 @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "product_id", referencedColumnName = "productid")
+	
+	@OneToOne
+    @JoinColumn(name = "productid")
     private Product product;
 	 
-	 @OneToOne(cascade = CascadeType.ALL)
-	 @JoinColumn(name = "store_id", referencedColumnName = "storeid")
+	@OneToOne
+    @JoinColumn(name = "storeid")
     private Store store;
     private int quantity;
-    @OneToOne(mappedBy = "stock")
-    private CartItem cartitemid;
+   
+    
     private float MRP;
     private float finalPrice;
     private float discount;
