@@ -28,9 +28,6 @@ public class CartItem {
 	@OneToOne
     @JoinColumn(name = "stockid")
     private Stock stock;
-	
-	
-	
-    private float unitPrice;
+	private float unitPrice;
     private short noOfUnits;
 }

@@ -25,10 +25,12 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long addressID;
     private String address;
+    private String city;
+    
     private String landmark;
     
   
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "loclityid")
     private Locality locality;
     private String phone;

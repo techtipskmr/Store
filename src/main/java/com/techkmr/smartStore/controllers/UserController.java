@@ -16,6 +16,7 @@ public class UserController {
 	@PostMapping("/save")
 	public String userRegistration(@RequestBody SUser user) {
 		System.out.println(user+ "     ==== ==========At controller level");
+		System.out.println(user.getRoles().toString());
 		return userService.register(user);
 	} 
 	

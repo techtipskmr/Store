@@ -25,8 +25,12 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long cartID;
+	 @OneToOne
+	    @JoinColumn(name = "userid")
+	    private SUser userid;
+	
+	
 	@OneToMany
-//    @JoinColumn(name = "cartitemid")
     private List<CartItem> cartItems;
     private float cartAmount;
    

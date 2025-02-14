@@ -3,8 +3,14 @@ package com.techkmr.smartStore.models;
 import java.util.Date;
 import java.util.UUID;
 
+import com.techkmr.smartStore.enums.OrderStatus;
+import com.techkmr.smartStore.enums.OrderType;
+import com.techkmr.smartStore.enums.PaymentType;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,6 +31,7 @@ public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderID;
+	
 	@OneToOne
     @JoinColumn(name = "userid")
     private SUser suser;
@@ -33,15 +40,17 @@ public class Orders {
     @JoinColumn(name = "cartid")
     private Cart cart;
     private boolean isPaymentConfirmed;
-    private enum paymentType{ONLINE,COD,CASH};
-    private String paymentType;
+    @Enumerated(EnumType.STRING)
+    private PaymentType paymentType;
 
     @OneToOne
     @JoinColumn(name = "addressid")
     private Address address;
     private String altMobile;
     private Date orderDate;
-    private enum orderType{PICKUP,DELIVERY,COURIER}
-    private enum orderStatus {PLACED,UNDERPROCESS,INTRANSIT,FULLFILLED};
+    @Enumerated(EnumType.STRING)
+    private OrderType orderType;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus ;
 
 }

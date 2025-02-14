@@ -1,14 +1,26 @@
 package com.techkmr.smartStore.models;
 
+import java.util.Collection;
 import java.util.Date;
-import java.util.UUID;
+import java.util.List;
 
+import org.hibernate.mapping.Array;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.techkmr.smartStore.enums.Gender;
+import com.techkmr.smartStore.enums.MyRoles;
+
+import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +34,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 
 public class SUser {
 	@Id
@@ -33,23 +46,23 @@ public class SUser {
     private String password;
     private Date dob;
     private String mobile;
-    private enum gender{MALE,FEMALE,NA};
-    private enum role{USER,ADMIN,SELLER};
-//    
-    @OneToOne
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private String userProfile;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+    @Enumerated(EnumType.STRING)
+    private MyRoles roles;
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressid")
     private Address address;
 
    
     
-    private boolean isEnabled;
-    private boolean isAccountNonLocked;
-    private boolean isCredentialsNonExpired;
-    private boolean isAccountNonExpired;
-	@Override
-	public String toString() {
-		return "SUser [userID=" + userID + ", userName=" + userName + ", password=" + password + "]";
-	}
+    private boolean enabled;
+    private boolean accountNonLocked;
+    private boolean credentialsNonExpired;
+    private boolean accountNonExpired;
 	
 
 
