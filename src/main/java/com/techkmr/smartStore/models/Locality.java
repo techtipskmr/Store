@@ -22,8 +22,8 @@ import lombok.Setter;
 @Entity
 public class Locality {
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-    private UUID localityID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long localityID;
     private String locality;
     private String district;
     private String state;

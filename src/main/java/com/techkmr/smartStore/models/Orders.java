@@ -23,8 +23,8 @@ import lombok.Setter;
 @Entity
 public class Orders {
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-    private UUID orderID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long orderID;
 	@OneToOne
     @JoinColumn(name = "userid")
     private SUser suser;

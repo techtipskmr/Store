@@ -22,8 +22,8 @@ import lombok.Setter;
 @Entity
 public class Address {
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-    private UUID addressID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long addressID;
     private String address;
     private String landmark;
     

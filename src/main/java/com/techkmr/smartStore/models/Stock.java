@@ -22,8 +22,8 @@ import lombok.Setter;
 @Entity
 public class Stock {
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-    private UUID stockID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long stockID;
 	
 	@OneToOne
     @JoinColumn(name = "productid")

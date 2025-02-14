@@ -21,8 +21,8 @@ import lombok.Setter;
 @Entity
 public class Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-    private UUID productID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long productID;
     private String productName;
     private String category;
     private String details;

@@ -23,8 +23,8 @@ import lombok.Setter;
 @Entity
 public class Cart {
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-    private UUID cartID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long cartID;
 	@OneToMany
 //    @JoinColumn(name = "cartitemid")
     private List<CartItem> cartItems;

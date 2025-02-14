@@ -14,7 +14,7 @@ import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuer
 
 import com.techkmr.smartStore.models.SUser;
 
-public interface UserRepo extends JpaRepository<SUser, UUID>{
+public interface UserRepo extends JpaRepository<SUser, Long>{
 
 	
 }

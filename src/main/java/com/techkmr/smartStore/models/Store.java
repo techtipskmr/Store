@@ -22,8 +22,8 @@ import lombok.Setter;
 @Entity
 public class Store {
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-    private UUID storeID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long storeID;
     private String storeName;
     //refers to user id with roles as seller
     @OneToOne
